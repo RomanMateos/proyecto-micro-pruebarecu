@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/ms-autor/autor/pom.xml" />
         <option value="$PROJECT_DIR$/ms-libro/libro/pom.xml" />
         <option value="$PROJECT_DIR$/ms-prestamo/prestamo/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-prestamo/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-libro/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-autor/pom.xml" />
       </list>
     </option>
   </component>
