@@ -20,7 +20,7 @@ Los componentes se comunican entre sí de manera síncrona utilizando **Spring C
 * **Spring Cloud OpenFeign** (Comunicación inter-servicio)
 * **MySQL 8.x / 8.4** (Motor de base de datos de Laragon)
 * **Lombok** (Generación automática de código)
-* **MapStruct** (Mapeo de Entidades y DTOs)
+* **Mapper Manual** (Conversión manual entre Entidad y DTO)
 * **Maven** (Gestor de dependencias)
 
 ---

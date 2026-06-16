@@ -118,4 +118,19 @@ public class PrestamoService {
                 p.getActivo()
         );
     }
+
+    public PrestamoResumenDTO actualizar(Integer id, PrestamoDTO dto) {
+        log.info("[PrestamoService] Actualizando préstamo con id={}", id);
+        Prestamo prestamo = prestamoRepository.findById(id)
+                .orElseThrow(() -> new PrestamoNotFoundException(id));
+        prestamo.setNombreAlumno(dto.getNombreAlumno());
+        prestamo.setLibroId(dto.getLibroId());
+        prestamo.setAutorId(dto.getAutorId());
+        prestamo.setDiasPrestamo(dto.getDiasPrestamo());
+        prestamo.setFechaPrestamo(dto.getFechaPrestamo());
+        prestamo.setActivo(dto.getActivo());
+        Prestamo actualizado = prestamoRepository.save(prestamo);
+        log.info("[PrestamoService] Préstamo id={} actualizado exitosamente", id);
+        return convertirAResumen(actualizado);
+    }
 }

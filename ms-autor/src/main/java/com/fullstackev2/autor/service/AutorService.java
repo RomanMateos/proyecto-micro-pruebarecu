@@ -56,4 +56,17 @@ public class AutorService {
         autorRepository.deleteById(id);
         log.info("[AutorService] Autor id={} eliminado", id);
     }
+
+    public AutorDTO actualizar(Integer id, AutorDTO dto) {
+        log.info("[AutorService] Actualizando autor con id={}", id);
+        Autor autor = autorRepository.findById(id)
+                .orElseThrow(() -> new AutorNotFoundException(id));
+        autor.setNombre(dto.getNombre());
+        autor.setLibrosPublicados(dto.getLibrosPublicados());
+        autor.setFechaNacimiento(dto.getFechaNacimiento());
+        autor.setActivo(dto.getActivo());
+        Autor actualizado = autorRepository.save(autor);
+        log.info("[AutorService] Autor id={} actualizado exitosamente", id);
+        return autorMapper.toDTO(actualizado);
+    }
 }

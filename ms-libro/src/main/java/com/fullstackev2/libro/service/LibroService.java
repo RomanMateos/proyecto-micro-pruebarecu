@@ -56,4 +56,18 @@ public class LibroService {
         libroRepository.deleteById(id);
         log.info("[LibroService] Libro id={} eliminado exitosamente", id);
     }
+
+    public LibroDTO actualizar(Integer id, LibroDTO dto) {
+        log.info("[LibroService] Actualizando libro con id={}", id);
+        Libro libro = libroRepository.findById(id)
+                .orElseThrow(() -> new LibroNotFoundException(id));
+
+        libro.setTitulo(dto.getTitulo());
+        libro.setPaginas(dto.getPaginas());
+        libro.setFechaPublicacion(dto.getFechaPublicacion());
+        libro.setDisponible(dto.getDisponible());
+        Libro actualizado = libroRepository.save(libro);
+        log.info("[LibroService] Libro id={} actualizado exitosamente", id);
+        return libroMapper.toDTO(actualizado);
+    }
 }
